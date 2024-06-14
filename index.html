@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Modelagem de Doenças Infecciosas</title>
+        <link rel="stylesheet" href="CSS/style.css" />
+        <link rel="icon" href="img/virus.png" />
+        <script src="JS/script.js"></script>
+    </head>
+    <body>
+        <section class="container">
+            <main>
+                <header>
+                    <h1 id="titulo">Modelagem de Doenças Infecciosas</h1>
+                </header>
+                <section class="intro">
+                    <div class="question" onclick="toggleAnswer('edo')">
+                        <p id="edo" class="answer">
+                            Equações Diferenciais Ordinárias (EDOs) são equações
+                            que descrevem a relação entre uma função e suas
+                            derivadas. Elas são amplamente utilizadas em
+                            diversas áreas da ciência e engenharia para modelar
+                            fenômenos que envolvem mudanças contínuas.
+                        </p>
+                    </div>
+                    <div class="question" onclick="toggleAnswer('sir')">
+                        <h2>O que é o modelo SIR?</h2>
+                        <p id="sir" class="answer">
+                            O modelo SIR é um modelo epidemiológico que divide a
+                            população em três categorias: Susceptíveis (S),
+                            Infectados (I) e Recuperados (R). Ele utiliza EDOs
+                            para descrever a transição entre esses estados ao
+                            longo do tempo.
+                        </p>
+                    </div>
+                    <div class="question" onclick="toggleAnswer('seir')">
+                        <h2>O que é o modelo SEIR?</h2>
+                        <p id="seir" class="answer">
+                            O modelo SEIR é uma extensão do modelo SIR que
+                            inclui uma categoria adicional: Expostos (E), que
+                            são indivíduos que foram infectados mas ainda não
+                            são infecciosos. Este modelo descreve a transição
+                            entre os estados Susceptíveis, Expostos, Infectados
+                            e Recuperados.
+                        </p>
+                    </div>
+                    <div class="question" onclick="toggleAnswer('calculo')">
+                        <h2>Como é feito o cálculo?</h2>
+                        <p id="calculo" class="answer">
+                            Para prever a propagação de uma doença, utilizamos
+                            EDOs para modelar as taxas de transmissão e
+                            recuperação. Por exemplo, no modelo SIR:<br />
+                            dS/dt = -βSI dI/dt = βSI - γI dR/dt = γI Onde:<br />
+                            - <strong>S</strong> é o número de pessoas
+                            susceptíveis (que podem pegar a doença).<br />
+                            - <strong>I</strong> é o número de pessoas
+                            infectadas (que têm a doença).<br />
+                            - <strong>R</strong> é o número de pessoas
+                            recuperadas (que se curaram da doença).<br />
+                            - <strong>β</strong> é a taxa de transmissão (a
+                            probabilidade de um susceptível se infectar ao
+                            entrar em contato com um infectado).<br />
+                            - <strong>γ</strong> é a taxa de recuperação (a
+                            probabilidade de um infectado se recuperar a cada
+                            dia).<br /><br />
+                            Essas equações mostram como a doença se espalha e
+                            como as pessoas mudam de estado (de susceptível para
+                            infectado e de infectado para recuperado) ao longo
+                            do tempo.
+                        </p>
+                    </div>
+                </section>
+            </main>
+            <section class="form-section">
+                <h2>Insira os dados da informação</h2>
+                <form id="Infect-Forms">
+                    <label for="susceptíveis">Número de Susceptíveis:</label>
+                    <input type="number" id="susceptíveis" required />
+                    <label for="infectados">Número de infectados:</label>
+                    <input type="number" id="infectados" required />
+                    <label for="recuperados">Número de recuperados:</label>
+                    <input type="number" id="recuperados" required />
+                    <label for="transmission-rate"
+                        >Taxa de Transmissão (β):</label
+                    >
+                    <input
+                        type="number"
+                        step="0.01"
+                        id="transmission-rate"
+                        required
+                    />
+                    <label for="recovery-rate">Taxa de Recuperação (γ):</label>
+                    <input
+                        type="number"
+                        step="0.01"
+                        id="recovery-rate"
+                        required
+                    />
+                    <button type="submit">Prever</button>
+                </form>
+            </section>
+        </section>
+        <footer></footer>
+    </body>
+</html>
