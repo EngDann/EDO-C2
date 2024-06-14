@@ -38,7 +38,7 @@ body {
 
 .opcoes button {
     cursor: pointer;
-    background-color: #fcabfc;
+    background-color: #ffd8fd;
     transition: 0.3s;
     border: none;
     border-radius: 5px;
@@ -46,7 +46,7 @@ body {
 }
 
 .opcoes button:hover {
-    background-color: #ffd8fd;
+    background-color: #fdb0f9;
     padding: 1.5%;
 }
 
@@ -62,6 +62,12 @@ body {
     flex: 1;
 }
 
+.intro h2 {
+    margin-top: 10px;
+}
+.intro h3 {
+    margin-top: 10px;
+}
 .form-section {
     margin: 15px auto auto 35px;
     background-color: #fdb0f9;
@@ -96,7 +102,7 @@ body {
     margin-top: 20px;
     padding: 10px;
     border: none;
-    background-color: #fcabfc;
+    background-color: #ffd8fd;
     transition: 0.3s;
     border-radius: 5px;
     cursor: pointer;
@@ -106,7 +112,7 @@ body {
 }
 
 #Infect-Forms button:hover {
-    background-color: #ffd8fd;
+    background-color: #fdb0f9;
 }
 
 #resultado {
