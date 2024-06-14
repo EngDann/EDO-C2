@@ -16,137 +16,119 @@
         </section>
         <section class="container">
             <section class="opcoes">
-                <button>Propagação de Doenças Infecciosas</button>
-                <button>Crescimento Populacional</button>
-                <button>Modelos de Crescimento Econômico</button>
+                <button data-topic="doencas">
+                    Propagação de Doenças Infecciosas
+                </button>
+                <button data-topic="populacao">Crescimento Populacional</button>
+                <button data-topic="economia">
+                    Modelos de Crescimento Econômico
+                </button>
             </section>
-            <section class="main-container">
-                <main>
-                    <header>
-                        <h1 id="titulo">Modelagem de Doenças Infecciosas</h1>
-                    </header>
-                    <section class="intro">
-                        <div class="question">
-                            <p id="edo" class="answer">
-                                Equações Diferenciais Ordinárias (EDOs) são
-                                equações que descrevem a relação entre uma
-                                função e suas derivadas. Elas são amplamente
-                                utilizadas em diversas áreas da ciência e
-                                engenharia para modelar fenômenos que envolvem
-                                mudanças contínuas.
-                            </p>
-                        </div>
-                        <div class="question">
-                            <h2>O que é o modelo SIR?</h2>
-                            <p id="sir" class="answer">
-                                O modelo SIR é um modelo epidemiológico que
-                                divide a população em três categorias:
-                                Susceptíveis (S), Infectados (I) e Recuperados
-                                (R). Ele utiliza EDOs para descrever a transição
-                                entre esses estados ao longo do tempo.
-                            </p>
-                        </div>
-                        <div class="question">
-                            <h2>O que é o modelo SEIR?</h2>
-                            <p id="seir" class="answer">
-                                O modelo SEIR é uma extensão do modelo SIR que
-                                inclui uma categoria adicional: Expostos (E),
-                                que são indivíduos que foram infectados mas
-                                ainda não são infecciosos. Este modelo descreve
-                                a transição entre os estados Susceptíveis,
-                                Expostos, Infectados e Recuperados.
-                            </p>
-                        </div>
-                        <div class="question">
-                            <h2>Como é feito o cálculo?</h2>
-                            <p id="calculo" class="answer">
-                                Para prever a propagação de uma doença,
-                                utilizamos EDOs para modelar as taxas de
-                                transmissão e recuperação. Por exemplo, no
-                                modelo SIR:<br />
-                                dS/dt = -βSI dI/dt = βSI - γI dR/dt = γI
-                                Onde:<br />
-                                - <strong>S</strong> é o número de pessoas
-                                susceptíveis (que podem pegar a doença).<br />
-                                - <strong>I</strong> é o número de pessoas
-                                infectadas (que têm a doença).<br />
-                                - <strong>R</strong> é o número de pessoas
-                                recuperadas (que se curaram da doença).<br />
-                                - <strong>β</strong> é a taxa de transmissão (a
-                                probabilidade de um susceptível se infectar ao
-                                entrar em contato com um infectado).<br />
-                                - <strong>γ</strong> é a taxa de recuperação (a
-                                probabilidade de um infectado se recuperar a
-                                cada dia).<br /><br />
-                                Essas equações mostram como a doença se espalha
-                                e como as pessoas mudam de estado (de
-                                susceptível para infectado e de infectado para
-                                recuperado) ao longo do tempo.
-                            </p>
-                        </div>
-                        <div class="question">
-                            <h2>O que é Crescimento Populacional?</h2>
-                            <p id="pop" class="answer">
-                                O crescimento populacional descreve como a
-                                população de um grupo de organismos muda ao
-                                longo do tempo. Modelos de EDO podem ser usados
-                                para prever a dinâmica populacional, levando em
-                                consideração fatores como taxa de natalidade,
-                                taxa de mortalidade e capacidade de suporte do
-                                ambiente.<br /><br />
-                                Para calcular o crescimento populacional,
-                                utilizamos a seguinte equação:<br />
-                                dP/dt = P * (natalidade - mortalidade) * (1 - P
-                                / capacidade) Onde:<br />
-                                - <strong>P</strong> é a população atual.<br />
-                                - <strong>natalidade</strong> é a taxa de
-                                natalidade.<br />
-                                - <strong>mortalidade</strong> é a taxa de
-                                mortalidade.<br />
-                                - <strong>capacidade</strong> é a capacidade de
-                                suporte do ambiente.<br /><br />
-                                Essa equação descreve como a população cresce de
-                                acordo com as taxas de natalidade e mortalidade,
-                                ajustando-se pela capacidade de suporte do
-                                ambiente.
-                            </p>
-                        </div>
-                        <div class="question">
-                            <h2>O que é Crescimento Econômico?</h2>
-                            <p id="eco" class="answer">
-                                Crescimento econômico refere-se ao aumento da
-                                produção de bens e serviços de uma economia ao
-                                longo do tempo. Modelos de EDO são usados para
-                                analisar o crescimento econômico considerando
-                                fatores como investimento, consumo, tecnologia e
-                                políticas governamentais.<br /><br />
-                                Para calcular o crescimento econômico,
-                                utilizamos a seguinte equação:<br />
-                                dK/dt = investimento * K - depreciacao * K +
-                                crescimento * K Onde:<br />
-                                - <strong>K</strong> é o capital atual.<br />
-                                - <strong>investimento</strong> é a taxa de
-                                investimento.<br />
-                                - <strong>depreciacao</strong> é a taxa de
-                                depreciação.<br />
-                                - <strong>crescimento</strong> é a taxa de
-                                crescimento tecnológico.<br /><br />
-                                Essa equação descreve como o capital da economia
-                                cresce ao longo do tempo, considerando o
-                                investimento, a depreciação e o crescimento
-                                tecnológico.
-                            </p>
-                        </div>
-                    </section>
-                </main>
-                <section class="form-section">
+            <div class="main-content">
+                <section class="intro" id="edoIntro">
+                    <h2>Equações Diferenciais Ordinárias (EDOs)</h2>
+                    <p>
+                        As equações diferenciais ordinárias (EDOs) são
+                        ferramentas fundamentais na matemática e nas ciências
+                        aplicadas, utilizadas para descrever a variação de uma
+                        quantidade em relação a outra. Elas surgem em diversos
+                        campos como física, engenharia, biologia, economia,
+                        entre outros, para modelar fenômenos naturais e sistemas
+                        dinâmicos.
+                    </p>
+                    <h3>Definição</h3>
+                    <p>
+                        Uma equação diferencial ordinária é uma equação que
+                        envolve funções de uma variável independente e suas
+                        derivadas. A forma geral de uma EDO de ordem
+                        <em>n</em> é:
+                    </p>
+
+                    <p><em>F(x, y, y', y'', …, y(n)) = 0</em></p>
+
+                    <p>
+                        onde <em>x</em> é a variável independente, <em>y</em> é
+                        a função desconhecida que depende de <em>x</em>, e
+                        <em>y', y'', …, y(n)</em> são as derivadas de
+                        <em>y</em> em relação a <em>x</em>.
+                    </p>
+
+                    <h3>Tipos de EDOs</h3>
+                    <p>
+                        <strong>EDOs Lineares:</strong> Têm a forma geral
+                        <em
+                            >a<sub>n</sub>(x) y<sup>(n)</sup> +
+                            a<sub>n-1</sub>(x) y<sup>(n-1)</sup> + … +
+                            a<sub>1</sub>(x) y' + a<sub>0</sub>(x) y = g(x)</em
+                        >, onde <em>a<sub>i</sub>(x)</em> e <em>g(x)</em> são
+                        funções de <em>x</em>.
+                    </p>
+
+                    <p>
+                        <strong>EDOs Não Lineares:</strong> Não seguem a forma
+                        linear e podem envolver produtos das funções
+                        desconhecidas e suas derivadas.
+                    </p>
+
+                    <p>
+                        <strong>EDOs de Primeira Ordem:</strong> Envolvem apenas
+                        a primeira derivada <em>y'</em>. Exemplo:
+                        <em>y' + p(x)y = q(x)</em>.
+                    </p>
+
+                    <p>
+                        <strong>EDOs de Ordem Superior:</strong> Envolvem
+                        derivadas de ordem maior que um. Exemplo:
+                        <em>y'' + p(x)y' + q(x)y = r(x)</em>.
+                    </p>
+
+                    <h3>Solução de EDOs</h3>
+                    <p>
+                        A solução de uma EDO pode ser uma função explícita
+                        <em>y = f(x)</em> ou um conjunto de funções que
+                        satisfazem a equação. Existem várias técnicas para
+                        resolver EDOs, incluindo:
+                    </p>
+
+                    <strong>Métodos Analíticos:</strong> Como a separação de
+                    variáveis, fator integrante, e transformação de Laplace.
+
+                    <strong>Métodos Numéricos:</strong> Como o método de Euler,
+                    método de Runge-Kutta, entre outros, usados quando não é
+                    possível obter uma solução analítica.
+
+                    <h3>Aplicações das EDOs</h3>
+                    <p>
+                        As EDOs são usadas para modelar uma vasta gama de
+                        fenômenos. Alguns exemplos incluem:
+                    </p>
+
+                    <strong>Movimento Harmônico Simples:</strong>
+                    <em>m (d<sup>2</sup>x / dt<sup>2</sup>) + kx = 0</em>, onde
+                    <em>m</em> é a massa e <em>k</em> é a constante da mola.
+
+                    <strong>Crescimento Populacional:</strong>
+                    <em>dP / dt = rP</em>, onde <em>P</em> é a população e
+                    <em>r</em> é a taxa de crescimento.
+
+                    <strong>Circuitos Elétricos:</strong>
+                    <em>L (dI / dt) + RI = V(t)</em>, onde <em>L</em> é a
+                    indutância, <em>R</em> é a resistência, <em>I</em> é a
+                    corrente e <em>V(t)</em> é a voltagem.
+                </section>
+                <section
+                    class="intro"
+                    id="topicIntro"
+                    style="display: none"
+                ></section>
+                <section class="form-section" style="display: none">
                     <h2>Insira os dados da informação</h2>
                     <form id="Infect-Forms">
                         <!-- Campos do formulário serão atualizados dinamicamente pelo JavaScript -->
                     </form>
-                    <div id="resultado"></div>
+                    <div id="resultado" style="display: none"></div>
                 </section>
-            </section>
+            </div>
         </section>
         <footer></footer>
     </body>
