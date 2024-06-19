@@ -26,14 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 a transição entre esses estados ao longo do tempo.
                             </p>
                         </div>
-                        <div class="question">
-                            <h2>O que é o modelo SEIR?</h2>
-                            <p id="seir" class="answer">
-                                O modelo SEIR é uma extensão do modelo SIR que inclui uma categoria adicional: Expostos (E),
-                                que são indivíduos que foram infectados mas ainda não são infecciosos. Este modelo descreve
-                                a transição entre os estados Susceptíveis, Expostos, Infectados e Recuperados.
-                            </p>
-                        </div>
+
                         <div class="question">
                             <h2>Como é feito o cálculo?</h2>
                             <p id="calculo" class="answer">
@@ -86,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 muda ao longo do tempo. Modelos de EDO podem ser usados para prever a
                                 dinâmica populacional, levando em consideração fatores como taxa de natalidade,
                                 taxa de mortalidade e capacidade de suporte do ambiente.<br /><br />
-                                A equação diferencial utilizada é:<br />
+                                <h2>Como é feito o cálculo?</h2>                                
                                 <em>dP/dt = P * (natalidade - mortalidade) * (1 - P / capacidade)</em><br />
                                 Onde:<br />
                                 - <strong>P</strong> é a população atual.<br />
@@ -124,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 Crescimento econômico refere-se ao aumento da produção de bens e serviços de
                                 uma economia ao longo do tempo. Modelos de EDO são usados para analisar o crescimento
                                 econômico considerando fatores como investimento, consumo, tecnologia e políticas governamentais.<br /><br />
-                                A equação diferencial utilizada é:<br />
+                                <h2>Como é feito o cálculo?</h2>                                
                                 <em>dK/dt = investimento * K - depreciacao * K + crescimento * K</em><br />
                                 Onde:<br />
                                 - <strong>K</strong> é o capital atual.<br />

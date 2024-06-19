@@ -47,6 +47,7 @@ body {
 
 .opcoes button:hover {
     background-color: #fdb0f9;
+    background-color: #fdb0f9;
     padding: 1.5%;
 }
 
@@ -62,6 +63,12 @@ body {
     flex: 1;
 }
 
+.intro h2 {
+    margin-top: 10px;
+}
+.intro h3 {
+    margin-top: 10px;
+}
 .form-section {
     margin: 15px auto auto 35px;
     background-color: #fdb0f9;
@@ -106,6 +113,7 @@ body {
 }
 
 #Infect-Forms button:hover {
+    background-color: #fdb0f9;
     background-color: #fdb0f9;
 }
 #edoIntro h3,
