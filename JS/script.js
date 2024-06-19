@@ -52,19 +52,20 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                     `;
                     form.innerHTML = `
-                        <label for="susceptiveis">Susceptíveis (S):</label>
-                        <input type="number" id="susceptiveis" name="susceptiveis" required /><br />
+                       <label for="susceptiveis">Susceptíveis (S):</label>
+                        <input type="number" id="susceptiveis" name="susceptiveis" required step="1" placeholder="Insira um número inteiro" /><br />
                         <label for="infectados">Infectados (I):</label>
-                        <input type="number" id="infectados" name="infectados" required /><br />
+                        <input type="number" id="infectados" name="infectados" required step="0.01" placeholder="Insira um número decimal com 2 casas decimais" /><br />
                         <label for="recuperados">Recuperados (R):</label>
-                        <input type="number" id="recuperados" name="recuperados" required /><br />
+                        <input type="number" id="recuperados" name="recuperados" required step="1" placeholder="Insira um número inteiro" /><br />
                         <label for="beta">Taxa de Transmissão (β):</label>
-                        <input type="number" step="0.01" id="beta" name="beta" required /><br />
+                        <input type="number" step="0.01" id="beta" name="beta" required placeholder="Insira um número decimal com 2 casas decimais" /><br />
                         <label for="gama">Taxa de Recuperação (γ):</label>
-                        <input type="number" step="0.01" id="gama" name="gama" required /><br />
+                        <input type="number" step="0.01" id="gama" name="gama" required placeholder="Insira um número decimal com 2 casas decimais" /><br />
                         <label for="tempo">Intervalo de Tempo (Δt):</label>
-                        <input type="number" step="0.1" id="tempo" name="tempo" required /><br />
+                        <input type="number" step="0.1" id="tempo" name="tempo" required placeholder="Insira um número decimal" /><br />
                         <button type="button" id="calcularDoencaBtn">Calcular</button>
+
                     `;
                     document
                         .getElementById("calcularDoencaBtn")
@@ -94,16 +95,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     `;
                     form.innerHTML = `
                         <label for="populacao">População Atual (P):</label>
-                        <input type="number" id="populacao" name="populacao" required /><br />
+                        <input type="number" id="populacao" name="populacao" required placeholder="Insira um número inteiro" /><br />
                         <label for="natalidade">Taxa de Natalidade:</label>
-                        <input type="number" step="0.01" id="natalidade" name="natalidade" required /><br />
+                        <input type="number" step="0.01" id="natalidade" name="natalidade" required placeholder="Insira um número decimal com 2 casas decimais" /><br />
                         <label for="mortalidade">Taxa de Mortalidade:</label>
-                        <input type="number" step="0.01" id="mortalidade" name="mortalidade" required /><br />
+                        <input type="number" step="0.01" id="mortalidade" name="mortalidade" required placeholder="Insira um número decimal com 2 casas decimais" /><br />
                         <label for="capacidade">Capacidade de Suporte:</label>
-                        <input type="number" id="capacidade" name="capacidade" required /><br />
+                        <input type="number" id="capacidade" name="capacidade" required placeholder="Insira um número inteiro" /><br />
                         <label for="tempo">Intervalo de Tempo (Δt):</label>
-                        <input type="number" step="0.1" id="tempo" name="tempo" required /><br />
-                        <button type="button" id="calcularPopulacaoBtn">Calcular</button>
+                        <input type="number" step="0.1" id="tempo" name="tempo" required placeholder="Insira um número decimal" /><br />
+                        <button type="button" id="calcularPopulacaoBtn">Calcular</button><br /><br />
+
                     `;
                     document
                         .getElementById("calcularPopulacaoBtn")
@@ -131,17 +133,17 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                     `;
                     form.innerHTML = `
-                        <label for="capital">Capital Atual (K):</label>
-                        <input type="number" id="capital" name="capital" required /><br />
-                        <label for="investimento">Taxa de Investimento:</label>
-                        <input type="number" step="0.01" id="investimento" name="investimento" required /><br />
-                        <label for="depreciacao">Taxa de Depreciação:</label>
-                        <input type="number" step="0.01" id="depreciacao" name="depreciacao" required /><br />
-                        <label for="crescimento">Taxa de Crescimento:</label>
-                        <input type="number" step="0.01" id="crescimento" name="crescimento" required /><br />
-                        <label for="tempo">Intervalo de Tempo (Δt):</label>
-                        <input type="number" step="0.1" id="tempo" name="tempo" required /><br />
-                        <button type="button" id="calcularEconomiaBtn">Calcular</button>
+                    <label for="capital">Capital Atual (K):</label>
+                    <input type="number" id="capital" name="capital" required placeholder="Insira um número inteiro" /><br />
+                    <label for="investimento">Taxa de Investimento:</label>
+                    <input type="number" step="0.01" id="investimento" name="investimento" required placeholder="Insira um número decimal com 2 casas decimais" /><br />
+                    <label for="depreciacao">Taxa de Depreciação:</label>
+                    <input type="number" step="0.01" id="depreciacao" name="depreciacao" required placeholder="Insira um número decimal com 2 casas decimais" /><br />
+                    <label for="crescimento">Taxa de Crescimento:</label>
+                    <input type="number" step="0.01" id="crescimento" name="crescimento" required placeholder="Insira um número decimal com 2 casas decimais" /><br />
+                    <label for="tempo">Intervalo de Tempo (Δt):</label>
+                    <input type="number" step="0.1" id="tempo" name="tempo" required placeholder="Insira um número decimal" /><br />
+                    <button type="button" id="calcularEconomiaBtn">Calcular</button>
                     `;
                     document
                         .getElementById("calcularEconomiaBtn")
@@ -171,27 +173,41 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+        // Verificação para evitar valores irreais
+        if (beta <= 0 || gama <= 0 || dt <= 0 || beta > 10 || gama > 10) {
+            alert(
+                "As taxas de transmissão e recuperação devem estar entre 0 e 10, e o intervalo de tempo deve ser maior que zero."
+            );
+            return;
+        }
+
         // Realizando as iterações do método de Euler
         let S_current = S;
         let I_current = I;
         let R_current = R;
+        const totalPop = S + I + R;
 
-        const iterations = 100; // número de iterações para melhorar a precisão
-        const dSdt_initial = -beta * S_current * I_current;
-        const dIdt_initial = beta * S_current * I_current - gama * I_current;
+        const iterations = 1000; // número de iterações para melhorar a precisão
+        const dSdt_initial = (-beta * S_current * I_current) / totalPop;
+        const dIdt_initial =
+            (beta * S_current * I_current) / totalPop - gama * I_current;
         const dRdt_initial = gama * I_current;
 
         for (let i = 0; i < iterations; i++) {
-            const dSdt = -beta * S_current * I_current;
-            const dIdt = beta * S_current * I_current - gama * I_current;
+            const dSdt = (-beta * S_current * I_current) / totalPop;
+            const dIdt =
+                (beta * S_current * I_current) / totalPop - gama * I_current;
             const dRdt = gama * I_current;
 
             S_current += dSdt * (dt / iterations);
             I_current += dIdt * (dt / iterations);
             R_current += dRdt * (dt / iterations);
-        }
 
-        const totalPop = S + I + R;
+            // Evitar valores negativos
+            if (S_current < 0) S_current = 0;
+            if (I_current < 0) I_current = 0;
+            if (R_current < 0) R_current = 0;
+        }
 
         resultadoDiv.innerHTML = `
             <p><strong>Resultado:</strong></p>
@@ -243,15 +259,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Verificação para evitar valores irreais
-        if (capacidade <= 0) {
-            alert("Capacidade de suporte deve ser maior que zero.");
+        if (
+            capacidade <= 0 ||
+            natalidade <= 0 ||
+            mortalidade <= 0 ||
+            dt <= 0 ||
+            natalidade > 10 ||
+            mortalidade > 10
+        ) {
+            alert(
+                "Capacidade de suporte deve ser maior que zero. Taxas de natalidade e mortalidade devem estar entre 0 e 10, e o intervalo de tempo deve ser maior que zero."
+            );
             return;
         }
 
         // Realizando as iterações do método de Euler
         let P_current = P;
+        const iterations = 1000; // número de iterações para melhorar a precisão
 
-        const iterations = 100; // número de iterações para melhorar a precisão
         const dPdt_initial =
             P_current *
             (natalidade - mortalidade) *
@@ -263,6 +288,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 (natalidade - mortalidade) *
                 (1 - P_current / capacidade);
             P_current += dPdt * (dt / iterations);
+
+            // Evitar valores negativos e crescimento descontrolado
+            if (P_current < 0) P_current = 0;
+            if (P_current > capacidade) P_current = capacidade;
         }
 
         const percentualVariacao = ((P_current - P) / P) * 100;
@@ -305,10 +334,26 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+        // Verificação para evitar valores irreais
+        if (
+            investimento <= 0 ||
+            depreciacao <= 0 ||
+            crescimento <= 0 ||
+            dt <= 0 ||
+            investimento > 10 ||
+            depreciacao > 10 ||
+            crescimento > 10
+        ) {
+            alert(
+                "Taxas de investimento, depreciação e crescimento devem estar entre 0 e 10, e o intervalo de tempo deve ser maior que zero."
+            );
+            return;
+        }
+
         // Realizando as iterações do método de Euler
         let K_current = K;
+        const iterations = 1000; // número de iterações para melhorar a precisão
 
-        const iterations = 100; // número de iterações para melhorar a precisão
         const dKdt_initial =
             investimento * K_current -
             depreciacao * K_current +
@@ -320,6 +365,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 depreciacao * K_current +
                 crescimento * K_current;
             K_current += dKdt * (dt / iterations);
+
+            // Evitar valores negativos e crescimento descontrolado
+            if (K_current < 0) K_current = 0;
+            K_current = Math.round(K_current * 100) / 100; // Arredondar para duas casas decimais
         }
 
         const percentualVariacao = ((K_current - K) / K) * 100;
